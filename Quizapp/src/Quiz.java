@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 
 public class Quiz implements ActionListener{
     JFrame jf;
-    JLabel j1;
+    JLabel j1,j2;
     JLabel background;
     JLabel name;
     JLabel background1;
@@ -39,6 +39,14 @@ public class Quiz implements ActionListener{
 	    
 	    j1.setHorizontalAlignment(SwingConstants.CENTER);
 	    jf.add(j1);
+	    
+	    j2 = new JLabel("Java Programming Questions");
+	    j2.setBounds(870, 260, 550, 50);
+	    j2.setFont(new Font("Times New Roman",Font.BOLD,28));
+	    j2.setOpaque(false);
+	    
+	    j2.setHorizontalAlignment(SwingConstants.CENTER);
+	    jf.add(j2);
 	    
 	    name = new JLabel("Enter your name");
 	    name.setBounds(870, 350, 550, 50);
