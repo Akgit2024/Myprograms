@@ -57,6 +57,7 @@ public class Rules extends JFrame implements ActionListener{
 		setSize(650,540);
 		setLocation(570,260);
 		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	public static void main(String a[]) {
 		new Rules("User");
@@ -64,7 +65,8 @@ public class Rules extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == start) {
-			
+			new Quest();
+			setVisible(false);
 		}else {
 			setVisible(false);
 			new Quiz();
