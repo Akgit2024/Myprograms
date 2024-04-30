@@ -13,18 +13,24 @@ import javax.swing.JRadioButton;
 
 public class Quest extends JFrame implements ActionListener {
 	
-	String question[][] = new String[20][5];
-	String answers[][] = new String [20][2];
+	String question[][] = new String[10][5];
+	String answers[][] = new String [10][2];
 	JLabel qno,ques;
-	String userans[][] = new String[20][1];
+	String userans[][] = new String[10][1];
 	JRadioButton opt1,opt2,opt3,opt4;
 	ButtonGroup grouption;
 	JButton next,pre,sub;
-	public static int timer = 20;
+	public static int timer = 10;
 	public static int ans_given = 0;
 	public static int count = 0;
+	public static int score = 0;
+	String name;
 	
-	Quest(){
+	
+	public Quest(String name){
+		
+		this.name = name;
+		
 		setBounds(220, 60, 1500,900);
 		getContentPane().setBackground(Color.WHITE);
 		setLayout(null);
@@ -61,11 +67,11 @@ public class Quest extends JFrame implements ActionListener {
         question[2][3] = "interface";
         question[2][4] = "intf";
         
-        question[3][0] = "Which operator has the highest precedence?";
-        question[3][1] = "+";
-        question[3][2] = "*";
-        question[3][3] = "()";
-        question[3][4] = "&&";
+        question[3][0] = "What is the purpose of the \"super\" keyword in Java?";
+        question[3][1] = "To refer to the current object";
+        question[3][2] = "To create multiple instances of a class";
+        question[3][3] = "To invoke the superclass constructor or methods";
+        question[3][4] = "To hide data and methods within a class";
         
         question[4][0] = "Which of these keywords are used for the block to be examined for exceptions?";
         question[4][1] = "check";
@@ -85,106 +91,35 @@ public class Quest extends JFrame implements ActionListener {
         question[6][3] = ".js";
         question[6][4] = ".class";
         
-        question[7][0] = "In Java, strings are:";
-        question[7][1] = "Primitive data types";
-        question[7][2] = "Immutable objects";
-        question[7][3] = "Mutable objects";
-        question[7][4] = "Arrays of characters";
+        question[7][0] = "Which keyword is used for accessing the features of a package?";
+        question[7][1] = "package";
+        question[7][2] = "import";
+        question[7][3] = "extends";
+        question[7][4] = "export";
         
         question[8][0] = "Which one of the following is not an access modifier?";
-        question[8][1] = "Protected";
-        question[8][2] = "Void";
+        question[8][1] = "Void";
+        question[8][2] = "Protected";
         question[8][3] = "Public";
         question[8][4] = "Private";
         
-        question[9][0] = "Who invented Java Programming?";
-        question[9][1] = "Guido van Rossum";
-        question[9][2] = "James Gosling";
-        question[9][3] = "Dennis Ritchie";
-        question[9][4] = "Bjarne Stroustrup";
-        
-        question[10][0] = "Which option is false about the final keyword?";
-        question[10][1] = "A final method cannot be overridden in its subclasses";
-        question[10][2] = "A final class cannot be extended";
-        question[10][3] = "A final class cannot extend other classes";
-        question[10][4] = "A final method can be inherited";
-        
-        question[11][0] = "How many threads can be executed at a time?";
-        question[11][1] = "Only one thread";
-        question[11][2] = "Multiple threads";
-        question[11][3] = "Only main (main() method) thread";
-        question[11][4] = "Two threads";
-        
-        question[12][0] = "Which keyword is used for accessing the features of a package?";
-        question[12][1] = "package";
-        question[12][2] = "import";
-        question[12][3] = "extends";
-        question[12][4] = "export";
-        
-        question[13][0] = "Which of the following is FALSE about abstract classes in Java?";
-        question[13][1] = "If we derive an abstract class and do not implement all the abstract methods, "
-        		+ "then the derived class should also be marked as abstract using 'abstract' keyword";
-        question[13][2] = "Abstract classes can have constructors";
-        question[13][3] = "A class can be made abstract without any abstract method";
-        question[13][4] = "A class can inherit from multiple abstract classes";
-        
-        question[14][0] = "In which year was the first version of Java released?";
-        question[14][1] = "1991";
-        question[14][2] = "1995";
-        question[14][3] = "1998";
-        question[14][4] = "2000";
-        
-        question[15][0] = "What is the purpose of the \"super\" keyword in Java?";
-        question[15][1] = "To refer to the current object";
-        question[15][2] = "To create multiple instances of a class";
-        question[15][3] = "To invoke the superclass constructor or methods";
-        question[15][4] = "To hide data and methods within a class";
-        
-        question[16][0] = "What is the purpose of the continue statement in a loop?";
-        question[16][1] = "To exit the loop immediately";
-        question[16][2] = "To skip the current iteration and move to the next iteration";
-        question[16][3] = "To terminate the program";
-        question[16][4] = "To execute a specific block of code";
-       
-        question[17][0] = "Which operator is used to perform bitwise \"AND\" operation?";
-        question[17][1] = "&&";
-        question[17][2] = "&";
-        question[17][3] = "|";
-        question[17][4] = "||";
-        
-        question[18][0] = "Which loop construct guarantees that the loop body is executed at least once?";
-        question[18][1] = "for loop";
-        question[18][2] = "while loop";
-        question[18][3] = "do-while loop";
-        question[18][4] = "continue statement";
-        
-        question[19][0] = "What was the original name for Java?";
-        question[19][1] = "C++++";
-        question[19][2] = "Pine";
-        question[19][3] = "Maple";
-        question[19][4] = "Oak";
-        
+        question[9][0] = "Which option is false about the final keyword?";
+        question[9][1] = "A final method cannot be overridden in its subclasses";
+        question[9][2] = "A final class cannot be extended";
+        question[9][3] = "A final class cannot extend other classes";
+        question[9][4] = "A final method can be inherited";
+          
         answers[0][1] = "JDK";
         answers[1][1] = ".java";
         answers[2][1] = "interface";
-        answers[3][1] = "()";
+        answers[3][1] = "To invoke the superclass constructor or methods";
         answers[4][1] = "try";
         answers[5][1] = "Compilation";
         answers[6][1] = ".class";
-        answers[7][1] = "Immutable objects";
+        answers[7][1] = "import";
         answers[8][1] = "Void";
-        answers[9][1] = "James Gosling";
-        answers[10][1] = "A final class cannot extend other classes";
-        answers[11][1] = "Multiple threads";
-        answers[12][1] = "import";
-        answers[13][1] = "A class can inherit from multiple abstract classes";
-        answers[14][1] = "1995";
-        answers[15][1] = "To invoke the superclass constructor or methods";
-        answers[16][1] = "To skip the current iteration and move to the next iteration";
-        answers[17][1] = "&&";
-        answers[18][1] = "do-while loop";
-        answers[19][1] = "Oak";
-        
+        answers[9][1] = "A final method can be inherited";
+       
         opt1 = new JRadioButton("A");
         opt1.setBounds(100,500,700,30);
         opt1.setBackground(Color.WHITE);
@@ -242,7 +177,9 @@ public class Quest extends JFrame implements ActionListener {
         
         start(count);
         
+       
 		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 	
@@ -263,15 +200,37 @@ public class Quest extends JFrame implements ActionListener {
 		opt4.setActionCommand(question[count][4]);
 		
 		grouption.clearSelection();
+		
+		count ++;
 	}
 	
-	public static void main(String a[]) {
-		new Quest();
+	public void start2(int count) {
+		qno.setText("" + (count-1) + ".");
+		ques.setText(question[count][0]);
+		opt1.setText(question[count][1]);
+		opt1.setActionCommand(question[count][1]);
+		
+		opt2.setText(question[count][2]);
+		opt2.setActionCommand(question[count][2]);
+		
+		opt3.setText(question[count][3]);
+		opt3.setActionCommand(question[count][3]);
+		
+		opt4.setText(question[count][4]);
+		opt4.setActionCommand(question[count][4]);
+		
+		grouption.clearSelection();
+		count --;
 	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == next) {
 		       repaint();
+		       opt1.setEnabled(true);
+			   opt2.setEnabled(true);
+			   opt3.setEnabled(true);
+			   opt4.setEnabled(true);
 		       
 		       ans_given = 1;
 		       if(grouption.getSelection() == null) {
@@ -280,17 +239,58 @@ public class Quest extends JFrame implements ActionListener {
 					userans[count][0] = grouption.getSelection().getActionCommand();
 					
 				}
-		       if(count == 18) {
+		        
+		       
+		       if(count == 8) {
 		    	   next.setEnabled(false);
+		    	   pre.setEnabled(true);
 		    	   sub.setEnabled(true);
 		       }
+		       if(count == 0) {
+		    	   pre.setEnabled(true);
+		       }
 		       
+		   
 		       count ++;
 		       start(count);
 	    }else if(e.getSource() == pre) {
 	    	   
-	    }else {
-	    	
+	    	    repaint();
+	    	    ans_given = 1;
+			    if(grouption.getSelection() == null) {
+						userans[count][0] = "";
+				}else {
+						userans[count][0] = grouption.getSelection().getActionCommand();
+						
+				}    
+			    if(count == 1) {
+			    	pre.setEnabled(false);
+			    }
+			    
+			    if(count == 9) {
+			    	next.setEnabled(true);
+			    	sub.setEnabled(false);
+			    }
+			    
+	    	    
+	    	    count --;
+	    	    start(count); 
+	    }else if(e.getSource() == sub) {
+	    	if(grouption.getSelection() == null) {
+			      userans[count][0] = "";
+		     }else {
+			      userans[count][0] = grouption.getSelection().getActionCommand();
+			
+		     }
+			 for(int i = 0; i < userans.length; i++) {
+				 if(userans[i][0].equals(answers[i][1])) {
+					 score += 10;
+				 }else {
+					 score += 0;
+				 }
+			 }
+			 new Score(name,score);
+			 setVisible(false);
 	    }
 
     }
@@ -318,18 +318,46 @@ public class Quest extends JFrame implements ActionListener {
 		
 		if(ans_given == 1) {
 			ans_given = 0;
-			timer =20;
+			timer =10;
 		}else if(timer < 0) {
-			timer = 20;
+			timer = 10;
 			
-			if(grouption.getSelection() == null) {
-				userans[count][0] = "";
-			}else {
-				userans[count][0] = grouption.getSelection().getActionCommand();
+			opt1.setEnabled(true);
+			opt2.setEnabled(true);
+			opt3.setEnabled(true);
+			opt4.setEnabled(true);
+			
+			if(count == 9) {
+				 if(grouption.getSelection() == null) {
+				      userans[count][0] = "";
+			     }else {
+				      userans[count][0] = grouption.getSelection().getActionCommand();
 				
-			}
-			count ++;
-			start(count);
-		}
+			     }
+				 for(int i = 0; i < userans.length; i++) {
+					 if(userans[i][0].equals(answers[i][1])) {
+						 score += 10;
+					 }else {
+						 score += 0;
+					 }
+				 }
+				 setVisible(false);
+				 new Score(name, score);
+				 
+			}else {
+			     if(grouption.getSelection() == null) {
+				      userans[count][0] = "";
+			     }else {
+				      userans[count][0] = grouption.getSelection().getActionCommand();
+				
+			     }
+			     count ++;
+			     start(count);
+		    }
+	}
+}
+	
+	public static void main(String a[]) {
+		new Quest("User");
 	}
 }
