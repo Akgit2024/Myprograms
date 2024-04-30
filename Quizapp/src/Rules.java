@@ -27,7 +27,7 @@ public class Rules extends JFrame implements ActionListener{
 	    rules.setFont(new Font("Times New Roman",Font.PLAIN | Font.ITALIC,18));
         rules.setText(
         		"<html>"+
-                "1. The Quiz contains 20 Multiple Choice Questions." + "<br><br>" +
+                "1. The Quiz contains 10 Multiple Choice Questions." + "<br><br>" +
         		"2. Read the questions carefully and then answer them." + "<br><br>" +
          		"3. Each questions will be given points. There is no negative marking." + "<br><br>" +
                 "4. Make sure you are connected to a stable Wi-fi or cable internet." + "<br><br>" +
@@ -65,7 +65,7 @@ public class Rules extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == start) {
-			new Quest();
+			new Quest(name);
 			setVisible(false);
 		}else {
 			setVisible(false);
