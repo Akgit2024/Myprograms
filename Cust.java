@@ -25,7 +25,7 @@ public class Cust implements ActionListener{
 	JMenuItem login,signin,exit;
 	
 	public Cust () {
-		jf = new JFrame("");
+	jf = new JFrame("");
         jf.getContentPane().setBackground(Color.WHITE);
         jf.setBounds(600, 210, 730, 600);
 
